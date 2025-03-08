@@ -26,20 +26,24 @@ def handle_action(command):
     
     if command["action"] == "move":
         rospy.loginfo("Moving turtle")
-        twist.linear.x = command["speed"]["linear"]["x"]
-        twist.linear.y = 0
-        pub.publish(twist)
-        
+        rate = rospy.Rate(10)  # 10 Hz
         time_to_move = command["distance"] / command["speed"]["linear"]["x"]
-        rospy.sleep(time_to_move)
+        end_time = rospy.Time.now() + rospy.Duration(time_to_move)
+
+        twist.linear.x = command["speed"]["linear"]["x"]
+
+        while rospy.Time.now() < end_time:
+            pub.publish(twist)     
+            rate.sleep()
 
         twist.linear.x = 0
         pub.publish(twist)
+
+        
         
         rospy.loginfo("Rotating turtle")
         twist.angular.z = command["angular_speed"]["angular"]["z"]
         pub.publish(twist)
-        
 
 
     else:
