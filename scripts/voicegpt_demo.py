@@ -12,7 +12,7 @@ r = sr.Recognizer()
 # OpenAI (Azure) Configuration
 # =======================
 # Replace these values with your own settings.
-api_key = "your API key"  # Your API key
+api_key = "Your API Key"  # Your API key
 api_base = "https://models.inference.ai.azure.com"  
 deployment_id = "gpt-4o"  
 api_version = "2023-03-15-preview"  
