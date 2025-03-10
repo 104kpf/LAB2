@@ -32,8 +32,8 @@ catkin_make
 source devel/setup.bash
 ```
 
-##### 6.Set up your API key
-Remember to key your own api key inside the voicegpt_demo.py, and run
+##### 6.Set up your API key.
+Remember to key your own api key inside the voicegpt_demo.py, and run:
 
 ```
 rosrun voicegpt_ros voicegpt_demo.py
