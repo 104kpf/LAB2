@@ -104,7 +104,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES voicegpt_ros
-#  CATKIN_DEPENDS rospy std_msgs
+  CATKIN_DEPENDS rospy std_msgs
 #  DEPENDS system_lib
 )
 
@@ -118,6 +118,9 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
+
+catkin_install_python(PROGRAMS scripts/your_script.py
+                      DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
